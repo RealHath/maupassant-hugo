@@ -11,7 +11,15 @@
         </header>
         {{ partial "post-meta.html" . }}
         <div class="post-content">
-            {{ .Summary }}……
+            {{ if .Description }}
+                {{ .Description }}
+            {{ else }}
+                {{ if gt (len .Summary) (int .Site.Params.summaryLength) }}
+                    {{ .Summary }} ...
+                {{ else }}
+                    {{ .Summary }}
+                {{ end }}
+            {{ end }}
         </div>
         <p class="readmore"><a href="{{ .Permalink }}" target="_blank">{{ i18n "continueReading" }}</a></p>
     </article>

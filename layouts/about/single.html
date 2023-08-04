@@ -1,0 +1,12 @@
+{{ define "content"}}
+<div class="res-cons">
+    <article class="post">
+        <div class="post-content">
+            {{ .Content }}
+        </div>
+
+        {{ partial "copyright" .}}
+    </article>
+    {{ partial "comments" . }}
+</div>
+{{ end }}
